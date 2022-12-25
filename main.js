@@ -32,6 +32,8 @@ auth: state
 })
 Memory_Store.bind(conn.ev)
 
+require("http").createServer((_, res) => res.end("Uptime!")).listen(8080)
+
 conn.ev.on('messages.upsert', async m => {
 var msg = m.messages[0]
 if (!m.messages) return;
